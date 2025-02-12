@@ -47,13 +47,13 @@ The platform will include the following functionalities:
 The project will be developed in **four sprints**, each lasting **2 to 4 weeks**, following **agile development methodologies**. Version 1 will implement the core functionalities, while version 2 will introduce **additional features** based on instructor feedback.
 
 ## **Team Members**
-| Name            | GitHub Username | Email                          | Role                    |
-|-----------------|-----------------|--------------------------------|-------------------------|
-| Andrew Moore    | ajm1084         | andymoore0204@gmail.com        | Team Leader             |
-| Jacob Frayser   | jf1774          | jacobfrayser@gmail.com         | Backend & Database      |
-| Aidan Scahill   | afs214          | aidancontrolled@gmail.com      | Frontend UI/UX          |
-| Jeremias Conerly| jlc1667         | jeremiasc04@icloud.com         | API & Integration       |
-| Cameron Cummings| cdc888          | cameroncummings2100@gmail.com  | Documentation & Testing |
+| Name            | NetID           | GitHub Username                | Email                          | Role                    |
+|-----------------|-----------------|--------------------------------|--------------------------------|-------------------------|
+| Andrew Moore    | ajm1084         | seeisalty                      | andymoore0204@gmail.com        | Team Leader             |
+| Jacob Frayser   | jf1774          | JacobFrayser                   | jacobfrayser@gmail.com         | Backend & Database      |
+| Aidan Scahill   | afs214          | AidanScahill                   | aidancontrolled@gmail.com      | Frontend UI/UX          |
+| Jeremias Conerly| jlc1667         | Jeramias-27                    | jeremiasc04@icloud.com         | API & Integration       |
+| Cameron Cummings| cdc888          |                                | cameroncummings2100@gmail.com  | Documentation & Testing |
 
 ## **Repository**
 🔗 **GitHub Repository:** [Intro_to_SE_lab](https://github.com/seeisalty/Intro_to_SE_lab)
