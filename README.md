@@ -52,7 +52,7 @@ The project will be developed in **four sprints**, each lasting **2 to 4 weeks**
 | Andrew Moore    | ajm1084         | seeisalty                      | andymoore0204@gmail.com        | Team Leader             |
 | Jacob Frayser   | jf1774          | JacobFrayser                   | jacobfrayser@gmail.com         | Backend & Database      |
 | Aidan Scahill   | afs214          | AidanScahill                   | aidancontrolled@gmail.com      | Frontend UI/UX          |
-| Jeremias Conerly| jlc1667         | Jeramias-27                    | jeremiasc04@icloud.com         | API & Integration       |
+| Jeremias Conerly| jlc1667         | Jeremias-27                    | jeremiasc04@icloud.com         | API & Integration       |
 | Cameron Cummings| cdc888          |                                | cameroncummings2100@gmail.com  | Documentation & Testing |
 
 ## **Repository**
