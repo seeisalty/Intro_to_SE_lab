@@ -56,7 +56,7 @@ The project will be developed in **four sprints**, each lasting **2 to 4 weeks**
 | Cameron Cummings| cdc888          |                                | cameroncummings2100@gmail.com  | Documentation & Testing |
 
 ## **Repository**
-🔗 **GitHub Repository:** [Intro_to_SE_lab](https://github.com/seeisalty/Intro_to_SE_lab)
+**GitHub Repository:** [Intro_to_SE_lab](https://github.com/seeisalty/Intro_to_SE_lab)
 
 ---
 
