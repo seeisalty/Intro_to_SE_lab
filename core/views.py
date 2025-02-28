@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-def dashboard(request):
-    return render(request, 'core/dashboard.html')  # Example dashboard page
+def home(request):
+    return HttpResponse("Welcome to Intro SE Lab!")
