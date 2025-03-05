@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +39,10 @@ ROOT_URLCONF = 'intro_SE_lab.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'home/templates'],  # ✅ Explicitly telling Django where to look
+        'DIRS': [
+            BASE_DIR / "templates",
+            BASE_DIR / "home/templates",
+        ],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,3 +91,4 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = "/"
