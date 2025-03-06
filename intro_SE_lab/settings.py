@@ -20,7 +20,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home',  # ✅ Ensure 'home' is included as an installed app
+    'userauth', # user authorization app
 ]
+
+AUTH_USER_MODEL = 'userauth.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
