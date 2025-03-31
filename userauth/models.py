@@ -11,6 +11,10 @@ class CustomUser(AbstractUser):
     ]
     
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='buyer')
+    email = models.EmailField(unique=True) # only one account per email
+
+    USERNAME_FIELD = 'email'  # Use email for authentication
+    REQUIRED_FIELDS = ['username']  # keep username as required field
 
     def __str__(self):
-        return f"{self.username} ({self.role})"
+        return f"{self.email} ({self.role})"
