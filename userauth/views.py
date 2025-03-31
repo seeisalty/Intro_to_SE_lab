@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .forms import CustomUserRegistrationForm
+from .forms import CustomUserEditForm 
 
 # Create your views here.
 
@@ -22,6 +24,7 @@ def register_view(request):
 
 # function to handle user login 
 def login_view(request):
+     
      # if form is submitted
      if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST) # built-in authentication form with submitted data
@@ -41,3 +44,22 @@ def login_view(request):
      else:
          form = AuthenticationForm() # form not submitted, display empty form
      return render(request, 'login.html', {'form': form})
+
+@login_required
+def settings_view(request):
+    user = request.user
+
+    if request.method == 'POST':
+        if 'update' in request.POST:
+            form = CustomUserEditForm(request.POST, instance=user)
+            if form.is_valid():
+                form.save()
+                return redirect('settings')
+        elif 'delete' in request.POST:
+            user.delete()
+            logout(request) # type: ignore
+            return redirect('login')
+    else:
+        form = CustomUserEditForm(instance=user)
+
+    return render(request, 'settings.html', {'form': form})
