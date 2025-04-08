@@ -22,6 +22,8 @@ INSTALLED_APPS = [
 
     'home',      # ✅ Home app
     'userauth',  # ✅ User authentication app
+    'inventory', # ✅ Inventory management app
+    'storefront',# ✅ Storefront views app
 ]
 
 AUTH_USER_MODEL = 'userauth.CustomUser'
