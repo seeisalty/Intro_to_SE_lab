@@ -1,166 +1,238 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SE Lab Store | Your Online Marketplace</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            color: #333;
-        }
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 15px;
-            font-size: 24px;
-        }
-        nav {
-            background: #0056b3;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .hero {
-            padding: 50px 20px;
-            background: url('https://source.unsplash.com/1600x600/?shopping') no-repeat center center/cover;
-            color: white;
-            border-radius: 10px;
-        }
-        .hero h1 {
-            font-size: 40px;
-        }
-        .hero p {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            margin-top: 15px;
-            background-color: #ff6600;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #cc5500;
-        }
-        .categories {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-        }
-        .category {
-            background: #ddd;
-            padding: 15px;
-            border-radius: 10px;
-            width: 30%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .category:hover {
-            background: #ccc;
-        }
-        .products {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .product-card {
-            background: white;
-            padding: 15px;
-            width: 30%;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        .product-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .product-card h3 {
-            margin-top: 10px;
-        }
-        footer {
-            background: #222;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SE Lab Store | Your Online Marketplace</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+
+    header {
+      background-color: #2a2a3d;
+      color: #ffffff;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+
+    nav.navbar {
+      background-color: #2e2e40;
+    }
+
+    nav a {
+      color: #e0e0e0 !important;
+      font-size: 17px;
+      margin-right: 15px;
+    }
+
+    .navbar-brand {
+      color: #ffc107 !important;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?shopping') no-repeat center center/cover;
+      padding: 80px 30px;
+      color: white;
+      border-radius: 12px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+
+    .btn-shop {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .btn-shop:hover {
+      background-color: #e0a800;
+    }
+
+    .categories, .products {
+      margin-top: 40px;
+    }
+
+    .category, .product-card {
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .category {
+      background-color: #2a2a3d;
+      cursor: pointer;
+      color: #f1f1f1;
+      border: 1px solid #3c3c55;
+    }
+
+    .category:hover {
+      transform: scale(1.05);
+      background-color: #39395c;
+    }
+
+    .product-card {
+      background-color: #2a2a3d;
+      color: #f1f1f1;
+      border: 1px solid #3c3c55;
+    }
+
+    .product-card img {
+      border-radius: 10px;
+      max-width: 100%;
+    }
+
+    footer {
+      background-color: #2e2e40;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #444;
+    }
+
+    footer a {
+      color: #ffc107;
+    }
+
+    .user-icon-placeholder {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #666;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    .dropdown-menu {
+      background-color: #2a2a3d;
+      border: 1px solid #444;
+    }
+
+    .dropdown-item {
+      color: #f8f9fa;
+    }
+
+    .dropdown-item:hover {
+      background-color: #3a3a55;
+    }
+
+    .dropdown-divider {
+      border-top: 1px solid #444;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        SE Lab Store - Your Online Marketplace
-    </header>
+  <header>
+    SE Lab Store - Your Online Marketplace
+  </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Categories</a>
-        <a href="#">Contact</a>
-        <a href="/admin">Admin Panel</a>
-    </nav>
-
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <div class="hero">
-            <h1>Welcome to SE Lab Store</h1>
-            <p>Find the best products at unbeatable prices!</p>
-            <a href="#" class="btn">Start Shopping</a>
-        </div>
+      <a class="navbar-brand" href="#">SE Lab</a>
+      <form method="GET" action="{% url 'product_search' %}">
+        <input type="text" name="q" placeholder="Search products...">
+        <button type="submit">Search</button>
+      </form>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/storefront">Shop</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="catDropdown">
+                {% for category in categories %}
+                  <li><a class="dropdown-item" href="{% url 'product_filter' category.slug %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="user-icon-placeholder">👤</div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
+                <li><a class="dropdown-item" href="/admin/">Admin Panel</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <h2>Shop by Category</h2>
-        <div class="categories">
-            <div class="category">Electronics</div>
-            <div class="category">Clothing</div>
-            <div class="category">Home & Kitchen</div>
-        </div>
-
-        <h2>Featured Products</h2>
-        <div class="products">
-            <div class="product-card">
-                <img src="https://source.unsplash.com/300x200/?laptop" alt="Laptop">
-                <h3>High Performance Laptop</h3>
-                <p>$799.99</p>
-            </div>
-            <div class="product-card">
-                <img src="https://source.unsplash.com/300x200/?shoes" alt="Shoes">
-                <h3>Running Shoes</h3>
-                <p>$59.99</p>
-            </div>
-            <div class="product-card">
-                <img src="https://source.unsplash.com/300x200/?headphones" alt="Headphones">
-                <h3>Wireless Headphones</h3>
-                <p>$99.99</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="hero text-center">
+      <h1>Welcome to SE Lab Store</h1>
+      <p class="lead">Find the best products at unbeatable prices!</p>
+      <a href="/storefront" class="btn btn-shop btn-lg mt-3">Start Shopping</a>
     </div>
 
-    <footer>
-        &copy; 2025 SE Lab Store | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a>
-    </footer>
+    <h2 class="mt-5">Shop by Category</h2>
+    <div class="row categories">
+      <div class="col-md-4 category">
+        <a href="/product_filter/electronics" style="text-decoration: none; color: inherit; display: block;">
+          Electronics
+        </a>
+      </div>
+      <div class="col-md-4 category">
+        <a href="/product_filter/clothing" style="text-decoration: none; color: inherit; display: block;">
+          Clothing
+        </a>
+      </div>
+      <div class="col-md-4 category">
+        <a href="/product_filter/home-and-kitchen" style="text-decoration: none; color: inherit; display: block;">
+          Home and Kitchen
+        </a>
+      </div>
+    </div>
 
+    <h2 class="mt-5">Featured Products</h2>
+    {% if products %}
+        <ul>
+            <div class="container">
+                <div class="row products">
+                    {% for product in products|slice:":3" %}
+                        <div class="col-md-4 product-card">
+                            <a href="{% url 'product_detail' product.slug %}" style="text-decoration: none; color: inherit; display: block;">
+                                <img src= "{{ product.image_url }}" alt="Something went wrong loading this image.">
+                                <h3 class="mt-3">{{ product.name }}</h3>
+                                <h5 class="mt-3">{{ product.category }}</h5>
+                                <p>${{ product.price }}</p> 
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div> 
+        </ul>
+    {% else %}
+        <h5 style="text-align:center; margin-top: 10cm;">No Products Available</h5>
+        <p style="text-align:center; margin-bottom: 10cm;">Come back later when there's more to see.</p>
+    {% endif %}
+  </div>
+
+  <footer>
+    &copy; 2025 SE Lab Store | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

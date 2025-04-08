@@ -1,4 +1,5 @@
 from pathlib import Path
+import os  # ✅ Needed for static files config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,8 +20,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'home',  # ✅ Ensure 'home' is included as an installed app
-    'userauth', # user authorization app
+    'home',      # ✅ Home app
+    'userauth',  # ✅ User authentication app
+    'inventory', # ✅ Inventory management app
+    'storefront',# ✅ Storefront views app
 ]
 
 AUTH_USER_MODEL = 'userauth.CustomUser'
@@ -37,11 +40,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'intro_SE_lab.urls'
 
-# ✅ Add home/templates directory to TEMPLATES['DIRS']
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'home/templates'],  # ✅ Explicitly telling Django where to look
+        'DIRS': [BASE_DIR / 'home/templates'],  # ✅ Home templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +89,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files
+# ✅ Static files config
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'home', 'static'),  # ✅ Your static folder inside 'home'
+]
+
+# Default auto field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
