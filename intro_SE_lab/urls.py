@@ -23,6 +23,7 @@ urlpatterns = [
     path('', lambda request: redirect('login')),  # ✅ Root redirects to /login/
     path('sign-up/', include('userauth.urls')),
     path('login/', include('userauth.urls')),
+    path('logout/', include('userauth.urls')),
     path('home/', include('home.urls')),
     path('admin/', admin.site.urls),
     path('', include('storefront.urls')),
