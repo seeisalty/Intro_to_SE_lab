@@ -27,4 +27,3 @@ def product_search(request):
     else:
         products = Product.objects.all()
     return render(request, 'product_search.html', {'products': products, 'query': query})
-
