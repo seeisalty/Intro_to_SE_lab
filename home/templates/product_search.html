@@ -1,6 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      // Force refresh to avoid stale session views
+      window.location.reload();
+    }
+  });
+</script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -169,9 +177,15 @@
               <div class="user-icon-placeholder">👤</div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              {% if user.is_authenticated %}
                 <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
                 <li><a class="dropdown-item" href="/admin/">Admin Panel</a></li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'sign-up' %}">Sign Up</a></li>
+              {% endif %}
             </ul>
           </li>
         </ul>

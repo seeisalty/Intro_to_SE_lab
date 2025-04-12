@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from home import views as home_views
 
 urlpatterns = [
-    path('', home_views.homepage_view, name='homepage'),  # Points to the homepage view in the home app
+    path('', home_views.homepage, name='homepage'),  # Points to the homepage view in the home app
     path('sign-up/', include('userauth.urls')),  # Make sure this includes the userauth urls
     path('login/', include('userauth.urls')),  # Login URL
     path('logout/', include('userauth.urls')),  # Logout URL

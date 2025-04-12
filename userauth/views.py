@@ -3,8 +3,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserRegistrationForm, CustomUserEditForm
+from django.views.decorators.cache import never_cache
 
 # Register view (no login required)
+@never_cache
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserRegistrationForm(request.POST)
@@ -18,6 +20,7 @@ def register_view(request):
     return render(request, 'sign-up.html', {'form': form})
 
 # Login view
+@never_cache
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('homepage')  # redirect if already logged in
@@ -37,12 +40,14 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 # Logout view
+@never_cache
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('homepage')
 
 # Settings view — requires login
 @login_required(login_url='/auth/login/')
+@never_cache
 def settings_view(request):
     if request.method == 'POST':
         form = CustomUserEditForm(request.POST, instance=request.user)
@@ -56,6 +61,7 @@ def settings_view(request):
 
 # Delete account view
 @login_required
+@never_cache
 def delete_account_view(request):
     if request.method == 'POST':
         request.user.delete()
