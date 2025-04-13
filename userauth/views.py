@@ -39,16 +39,22 @@ def login_view(request):
 # Logout view
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('homepage') # changed redirect to homepage
 
 # Settings view — requires login
 @login_required(login_url='/auth/login/')
 def settings_view(request):
     if request.method == 'POST':
-        form = CustomUserEditForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('settings')
+        if 'update' in request.POST:
+            form = CustomUserEditForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                return redirect('homepage')
+        
+        elif 'delete' in request.POST:
+            request.user.delete()
+            logout(request)
+            return redirect('homepage')
     else:
         form = CustomUserEditForm(instance=request.user)
 

@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
-from home import views as home_views
 
 urlpatterns = [
     path('', include('home.urls')),  # Home page  # Points to the homepage view in the home app
