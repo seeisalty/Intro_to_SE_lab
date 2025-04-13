@@ -53,12 +53,3 @@ def settings_view(request):
         form = CustomUserEditForm(instance=request.user)
 
     return render(request, 'settings.html', {'form': form})
-
-# Delete account view
-@login_required
-def delete_account_view(request):
-    if request.method == 'POST':
-        request.user.delete()
-        logout(request)
-        return redirect('login')
-    return redirect('settings')
