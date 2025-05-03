@@ -52,6 +52,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'intro_SE_lab.context_processors.cart_count', # added here for context_processor.py
             ],
         },
     },

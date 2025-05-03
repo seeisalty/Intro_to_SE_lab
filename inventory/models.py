@@ -44,5 +44,4 @@ class Cart(models.Model):
     class Meta:
         verbose_name_plural = "Cart Items"
     def __str__ (self):
-        return self.name
-
+         return f"{self.product.name} x{self.num_in_cart} for {self.buyer.email}"
