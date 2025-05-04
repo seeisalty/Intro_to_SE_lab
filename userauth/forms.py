@@ -14,5 +14,7 @@ class CustomUserRegistrationForm(UserCreationForm):
 class CustomUserEditForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'first_name', 'last_name', 'role'] 
+        fields = ['username', 'email', 'first_name', 'last_name']  # removed Role field as sellers are not supposed to be able to shop only sell
+                                                                    # if your role was buyer and you added things to cart, your cart would still have those items
+                                                                    # if you switched your role to seller thus enabling sellers to buy items
         
