@@ -1,9 +1,36 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from inventory.models import Product, Category, Cart
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+=======
+from django.shortcuts import render, get_object_or_404, redirect
+from inventory.models import Product, Category
+from django.db.models import Q
+from django.conf import settings
+from .forms import ProductForm
+
+def product_edit(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+
+    if product.seller != request.user:
+        return render(request, '403.html')  # Or raise PermissionDenied
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if 'save' in request.POST:
+            form.save()
+            return redirect('seller_panel')
+        elif 'delete' in request.POST:
+            product.delete()
+            return redirect('seller_panel')
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'product_edit.html', {'form': form})
+>>>>>>> 484de5de (seller panel added)
 
 def product_list(request):
     products = Product.objects.all()
@@ -31,6 +58,7 @@ def product_search(request):
         products = Product.objects.all()
     return render(request, 'product_search.html', {'products': products, 'query': query})
 
+<<<<<<< HEAD
 @login_required
 def view_cart(request):
     cart_items = Cart.objects.filter(buyer=request.user)
@@ -112,3 +140,23 @@ def get_cart_count(user):
     if user.is_authenticated:
         return Cart.objects.filter(buyer=user).count()
     return 0
+=======
+def seller_panel(request):
+    products = Product.objects.filter(seller = request.user)
+    categories = Category.objects.all()
+    return render(request, 'seller_panel.html', {'products': products, 'categories': categories})
+
+def product_add(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.seller = request.user
+            product.save()
+            return redirect('seller_panel')
+    else:
+        form = ProductForm()
+
+    return render(request, 'product_add.html', {'form': form})
+
+>>>>>>> 484de5de (seller panel added)
