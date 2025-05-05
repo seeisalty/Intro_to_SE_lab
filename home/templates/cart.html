@@ -247,9 +247,14 @@
       <div class="text-end mt-3">
         <h4>Subtotal: <span style="color: #ffc107;">${{ subtotal_price|floatformat:2 }}</span></h4>
       </div>
+
+      <!-- Checkout Button -->
+      <div class="text-end mt-3">
+        <a href="{% url 'checkout' %}" class="btn btn-warning">Proceed to Checkout</a>
+      </div>
     {% else %}
       <div class="alert alert-warning text-center mt-5" role="alert">
-        Your cart is empty. <a href="{% url 'product_list' %}" class="alert-link">Start shopping</a>!
+        Your cart is empty. <a href="{% url 'product_list' %}" class="alert-link">Start shopping</a>
       </div>
     {% endif %}
   </div>
